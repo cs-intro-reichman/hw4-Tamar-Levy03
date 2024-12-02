@@ -22,5 +22,44 @@ public class KeywordsDetector {
     // If a sentence contains one or more of the kewords, prints it.
     public static void detectAndPrint(String[] sentences, String[] keywords) {
         // Replace this comment with your code
+        String[] words;
+        for(int i = 0; i<sentences.length; i++){
+            words = wordSeparate(sentences[i]);
+            for(int j = 0; j<words.length; j++){
+                for(int x = 0; x<keywords.length; x++){
+                    if ((words[j].toLowerCase()).equals(keywords[x].toLowerCase())) {
+                        System.out.print(sentences[i]);
+                        System.out.println();
+                        break;
+                    }
+                }
+            }
+
+        }
+    }
+
+
+    // function that get a string and split him into individual words and return them as an array of strings
+    public static String[] wordSeparate(String str){
+        int wordCounter = 0;
+        int index = 0;
+        String word = "";
+        for(int i = 0; i<str.length(); i++){
+            if (str.charAt(i) == ' ') {
+                wordCounter++;
+            }
+        }
+        String[] wordSep = new String[wordCounter+1];
+        for(int j = 0; j<wordSep.length; j++)
+        {
+            word = "";
+            while (index < str.length() && str.charAt(index) != ' ') {
+                word += str.charAt(index);
+                index++;
+            }
+            index++;
+            wordSep[j] = word;
+        }
+        return wordSep;
     }
 }
