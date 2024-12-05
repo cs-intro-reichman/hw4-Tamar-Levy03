@@ -21,17 +21,15 @@ public class MyString {
         // Replace the following statement with your code
         String newStr = "";
         char newChar = ' ';
-        for(int i = 0; i<str.length(); i++){
-            if (((int)str.charAt(i)) > 64 && (int)str.charAt(i) < 96) {
-                newChar = (char)(((int)str.charAt(i))+32);
+        for (int i = 0; i < str.length(); i++) {
+            if (((int) str.charAt(i)) > 64 && (int) str.charAt(i) < 96) {
+                newChar = (char) (((int) str.charAt(i)) + 32);
                 newStr = newStr + newChar;
-            }
-            else{
+            } else {
                 newStr = newStr + str.charAt(i);
             }
         }
         return newStr;
-        //return null;
     }
 
     /** If str1 contains str2, returns true; otherwise returns false. */
@@ -44,21 +42,21 @@ public class MyString {
             return true;
         }
         int x = 0;
-        boolean check = true;
-        for(int i = 0; i< str1.length(); i++){
+        boolean isContains = true;
+        for (int i = 0; i < str1.length(); i++) {
             x = i;
-            check = true;
-            for(int j = 0; j<str2.length(); j++){
+            isContains = true;
+            for (int j = 0; j < str2.length(); j++) {
                 if (str2.charAt(j) != str1.charAt(x)) {
-                    check = false;
+                    isContains = false;
                     break;
                 }
                 x++;
             }
-            if (check) {
-                return true;          
+            if (isContains) {
+                return true;
             }
-        }  
+        }
         return false;
     }
 }

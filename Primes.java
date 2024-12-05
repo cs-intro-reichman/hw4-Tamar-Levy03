@@ -6,28 +6,28 @@ public class Primes {
         int p = 2;
         int j = 2;
         int counter = 0;
-        for(int i = 2; i<=N; i++ ){
+        for (int i = 2; i <= N; i++) {
             found[i] = true;
         }
-        while (p<(double)Math.sqrt(N)) {
-            while (j*p<=N) {
-                found[j*p] = false;
+        while (p < (double) Math.sqrt(N)) {
+            while (j * p <= N) {
+                found[j * p] = false;
                 j++;
-                
+
             }
-            do{
+            do {
                 p++;
-            }while(found[p] == false);
+            } while (found[p] == false);
             j = p;
         }
         System.out.println("Prime numbers up to " + N + ":");
-        for(int x = 2; x<=N; x++){
-            if (found[x] == true) {
+        for (int x = 2; x <= N; x++) {
+            if (found[x]) {
                 System.out.println(x);
                 counter++;
             }
         }
-        double percent = ((double)counter/N)*100;
-        System.out.println("There are " + counter + " primes between 2 and " + N + " (" + (int)percent + "% are primes)");
+        double percent = ((double) counter / N) * 100;
+        System.out.println("There are " + counter + " primes between 2 and " + N + " (" + (int) percent + "% are primes)");
     }
 }
